@@ -1,16 +1,11 @@
 import React from "react";
 import { Autocomplete } from "@react-google-maps/api";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  InputBase,
-  Box,
-  
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, InputBase, Box } from "@mui/material";
+import { searchIcon } from "@mui/icons-material/Search";
+import { useStyles } from "./styles";
 const Header = () => {
+  const classes = useStyles();
   return (
-    
     <div>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
@@ -18,17 +13,23 @@ const Header = () => {
             Travel Advisor App
           </Typography>
           <Box display="flex">
-            
             <Typography variant="h6" className={classes.title}>
               Explore new places
             </Typography>
-            <Autocomplete>
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
+            {/* <Autocomplete> */}
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
               </div>
-            </Autocomplete>
+              <InputBase
+                plaveholder="Search..."
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+              />
+            </div>
+            {/* </Autocomplete> */}
           </Box>
         </Toolbar>
       </AppBar>
