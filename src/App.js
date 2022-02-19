@@ -1,8 +1,10 @@
 import React from "react";
-import { CssBaseline, Grid } from "@mui/material";
+import { CssBaseline, Grid } from "@material-ui/core";
+
 import List from "./components/List/List";
-import Header from "./components/Header/Header";
 import Map from "./components/Map/Map";
+import PlaceDetails from "./components/PlaceDetails/PlaceDetails";
+import Header from "./components/Header/Header";
 const App = () => {
   return (
     <>
@@ -19,5 +21,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
