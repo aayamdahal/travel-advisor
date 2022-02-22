@@ -1,28 +1,27 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
-import { Paper, Typography, useMediaQuery } from "@material-ui/core";
-import LocationOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
-import Rating from "@material-ui/lab";
-
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import useStyles from "./styles";
+
+const containerStyle = {
+  width: "inherit",
+  height: "inherit",
+};
 
 const Map = () => {
   const classes = useStyles();
-  const isMobile = useMediaQuery("min-width:600px");
-  const coordinates = { lat: 0, lon: 0 };
+  const coordinates = { lat: 28.394857, lng: 84.124008 };
+
   return (
-    <div className={classes.mapContainer}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCyetgEUKQzcIb4r5Y80bnpztR4Jow63Qs" }}
-        defaultCenter={coordinates}
-        center={coordinates}
-        defaultZoom={14}
-        margin={[50, 50, 50, 50]}
-        options={""}
-        onChange={""}
-        onChildClick={""}
-      ></GoogleMapReact>
-    </div>
+    <LoadScript googleMapsApiKey="AIzaSyCyetgEUKQzcIb4r5Y80bnpztR4Jow63Qs">
+      <div className={classes.mapContainer} style={{ marginTop: "1rem" }}>
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={coordinates}
+          zoom={5}
+          margin={[50, 50, 50, 50]}
+        ></GoogleMap>
+      </div>
+    </LoadScript>
   );
 };
 
