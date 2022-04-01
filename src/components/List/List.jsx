@@ -8,7 +8,19 @@ import {
   FormControl,
   Select,
 } from "@material-ui/core";
+
 import useStyles from "./styles";
+import PlaceDetails from "../PlaceDetails/PlaceDetails";
+
+const place = [
+  { name: "Cool Place" },
+  {
+    name: "the uk pub",
+  },
+  {
+    name: "Best Steak",
+  },
+];
 
 const List = () => {
   const [type, setType] = useState("restaurants");
@@ -44,6 +56,13 @@ const List = () => {
           <MenuItem value={4.5}>Above 4.5</MenuItem>
         </Select>
       </FormControl>
+      <Grid container spaceing={3} className={classes.list}>
+        {place?.map((place, index) => (
+          <Grid item key={index} xs={12}>
+            <PlaceDetails place={place} />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
